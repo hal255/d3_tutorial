@@ -1,0 +1,97 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>D3 tutorial</title>
+    <script src="http://d3js.org/d3.v3.min.js"></script>
+</head>
+
+<body>
+    <script>
+        // create base svg element, the canvas
+        var canvas = d3.select("body")
+            .append("svg")
+            .attr("width", 500)
+            .attr("height", 500);
+
+
+        var circle1 = canvas.append("circle")
+            .attr("id", "circle1")
+            .attr("cx", 250)
+            .attr("cy", 250)
+            .attr("r", 50)
+            .attr("clip-path","url(#ellipse-clip2)")
+            .attr("fill-opacity", 0.5)
+            .style("mix-blend-mode", "darken")
+            .attr("fill", "blue");
+            
+        var circle2 = canvas.append("circle")
+            .attr("cx", 300)
+            .attr("cy", 250)
+            .attr("r", 50)
+            .attr("fill-opacity", 0.5)
+            .style("mix-blend-mode", "darken")
+            .attr("fill", "red");
+
+        // draw a circle
+        var eclipse1 = canvas.append("clipPath")       // define a clip path
+            .attr("id", "ellipse-clip") // give the clipPath an ID
+            .append("ellipse")            // shape it as an ellipse
+            .attr("cx", 175)            // position the x-centre
+            .attr("cy", 100)            // position the y-centre
+            .attr("rx", 100)            // set the x radius
+            .attr("ry", 100); 
+            
+        // draw a circle
+        var eclipse2 = canvas.append("clipPath")       // define a clip path
+            .attr("id", "ellipse-clip2") // give the clipPath an ID
+            .append("ellipse")            // shape it as an ellipse
+            .attr("cx", 250)            // position the x-centre
+            .attr("cy", 250)            // position the y-centre
+            .attr("rx", 25)            // set the x radius
+            .attr("ry", 25); 
+            
+        var rect1 = canvas.append("rect")
+            .attr("x",0)
+            .attr("y",0)
+            .attr("clip-path","url(#ellipse-clip)")
+            .attr("fill","SteelBlue")
+            .attr("height",500)
+            .attr("width",500)
+
+        console.log("d3");
+        console.log(d3);
+        console.log("canvas");
+        console.log(canvas);
+        console.log("circle1");
+        console.log(circle1);
+        console.log("circle2");
+        console.log(circle2);
+
+        // d3.json("mydata.json", function (data){
+        //     var canvas = d3.select("body").append("svg")
+        //         .attr("width", 500)
+        //         .attr("height", 500)
+        
+        //     canvas.selectAll("rect")
+        //         .data(data)
+        //         .enter()
+        //             .append("rect")
+        //             .attr("width", function(d){return d.age* 10;})
+        //             .attr("height",50)
+        //             .attr("y", function (d, i) {return i * 50;})
+        //             .attr("fill","blue");
+
+        //     canvas.selectAll("text")
+        //         .data(data)
+        //         .enter()
+        //             .append("text")
+        //             .attr("fill","white")
+        //             .attr("y", function (d, i) {return i * 50;})
+        //             .text(function (d) {return d.name;});
+
+        // })
+    </script>
+</body>
+
+</html>
